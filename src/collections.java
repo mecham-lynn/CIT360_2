@@ -71,6 +71,7 @@ public class collections {
 		iceCream.add("Vanilla");
 		iceCream.add("Peanut Butter");
 		iceCream.add("Mint");
+		//the duplicate will be removed.
 		iceCream.add("Chocolate");
 		
 		System.out.println(iceCream);
