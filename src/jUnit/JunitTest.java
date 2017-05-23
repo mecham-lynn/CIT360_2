@@ -18,4 +18,18 @@ public class JunitTest {
 		return examine;
 		
 	}
+	public Object nullTester(){
+		
+		Object nullTest = null;
+		return nullTest;
+	}
+	public String sameString(String str2){
+		String str = "hello";
+		return str;
+	}
+	public String[] arrayEqualsTest(){
+		String[] expectedArray = {"Hello","Hola","Konichiwa"};
+		
+		return expectedArray;
+	}
 }
