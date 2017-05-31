@@ -41,17 +41,17 @@ public class Control {
 		}
 		
 	}
-	
-	private int calculationValue;
-	
-	public void addTwoNumbers( int firstNumber, int secondNumber){
-		
-		calculationValue = firstNumber + secondNumber;
-	}
-	
-	public int getCalculationValue(){
-		
-		return calculationValue;
-		
-	}
+//	
+//	private int calculationValue;
+//	
+//	public void addTwoNumbers( int firstNumber, int secondNumber){
+//		
+//		calculationValue = firstNumber + secondNumber;
+//	}
+//	
+//	public int getCalculationValue(){
+//		
+//		return calculationValue;
+//		
+//	}
 }
