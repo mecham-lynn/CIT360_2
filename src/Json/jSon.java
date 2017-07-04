@@ -1,5 +1,10 @@
 package Json;
 import org.json.simple.*;
+import org.json.simple.parser.*;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class jSon {
 
@@ -35,4 +40,17 @@ JSONObject jsontest = new JSONObject();
 		return booklist;
 		
     }
+	public static void JSONWriter(JSONObject singleBook, JSONArray booklist){
+		try(FileWriter file = new FileWriter("C:\\Users\\Lynn\\workspace\\CIT360test\\src\\Json\\test.json")){
+			file.write(singleBook.toJSONString());
+			file.flush();
+			
+			file.write(booklist.toJSONString());
+			file.flush();
+			
+		} catch (IOException IOException){
+			IOException.printStackTrace();
+		}
+		
+	}
 }	
