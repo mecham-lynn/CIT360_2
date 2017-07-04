@@ -12,6 +12,7 @@ public class jSon {
 			
 		System.out.println(test());
 		System.out.println(grabber());
+		JSONWriter(test(),grabber());
 	}
 	public static JSONObject test(){
 JSONObject jsontest = new JSONObject();
@@ -41,12 +42,13 @@ JSONObject jsontest = new JSONObject();
 		
     }
 	public static void JSONWriter(JSONObject singleBook, JSONArray booklist){
-		try(FileWriter file = new FileWriter("C:\\Users\\Lynn\\workspace\\CIT360test\\src\\Json\\test.json")){
-			file.write(singleBook.toJSONString());
-			file.flush();
-			
-			file.write(booklist.toJSONString());
-			file.flush();
+		
+		singleBook.put("OtherBooks:", booklist);
+		try(
+				FileWriter file = new FileWriter("C:\\Users\\Lynn\\workspace\\CIT360test\\src\\Json\\test.json")
+				){
+			file.write(singleBook.toJSONString());			
+			file.close();
 			
 		} catch (IOException IOException){
 			IOException.printStackTrace();
