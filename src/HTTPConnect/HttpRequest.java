@@ -9,9 +9,9 @@ import java.net.URL;
 public class HttpRequest {
     public static void main(String[] args) throws Exception {
         
-        HttpRequest SiteRequest = new HttpRequest();        
+        HttpRequest MemeRequest = new HttpRequest();        
         
-        SiteRequest.getInformation();
+        MemeRequest.getInformation();
     }
     
     private void getInformation() throws Exception {
