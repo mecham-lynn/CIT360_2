@@ -30,5 +30,10 @@ public class HelloServlet extends HttpServlet {
       } finally {
          out.close();  // Always close the output writer
       }
+      
+   }
+   public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+   {
+	  doGet(request,response);
    }
 }
