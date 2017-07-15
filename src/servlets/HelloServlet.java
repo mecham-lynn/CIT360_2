@@ -2,6 +2,7 @@
 package servpkg;
  
 import java.io.*;
+import java.util.Enumeration;
 import javax.servlet.*;
 import javax.servlet.http.*;
  
@@ -13,23 +14,30 @@ public class HelloServlet extends HttpServlet {
       response.setContentType("text/html;charset=UTF-8");
       
       PrintWriter out = response.getWriter();
- 
-      // Write the response message, in an HTML page
-      try {
-         out.println("<!DOCTYPE html>");
-         out.println("<html><head>");
-         out.println("<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>");
-         out.println("<title>Hey Everybody</title></head>");
-         out.println("<body>");
-         out.println("<h1>Hi Guys! Welcome to my first servlet! </h1>"); 
-         out.println("<p> If you are seeing this then my servlet is working and i would like to say HELLO! </p>")
 
-    
-         out.println("</body>");
-         out.println("</html>");
-      } finally {
-         out.close();  // Always close the output writer
-      }
+      String title = "Example of Header Request";
+      String docType = "<!doctype html public \"-//w3c//dtd html 4.0 " + "transitional//en\">\n";
+                
+      out.println(docType +
+      "<html>\n" +
+      "<head><title>" + title + "</title></head>\n"+
+         "<body bgcolor = \"#f0f0f0\">\n" +
+         "<h1 align = \"center\">" + title + "</h1>\n" +
+         "<table width = \"100%\" border = \"1\" align = \"center\">\n" +
+         "<tr bgcolor = \"#949494\">\n" +
+         "<th>Header Name</th><th>Header Value(s)</th>\n"+
+         "</tr>\n"
+         );
+     Enumeration headerNames = request.getHeaderNames();
+
+     while(headerNames.hasMoreElements()){
+         String paramName = (String)headerNames.nextElement();
+         out.print("<tr><td>" + paramName + "</td>\n");
+         String paramValue = request.getHeader(paramName);
+         out.println("<td> " + paramValue + "</td?</tr> \n");
+     }
+        out.println("</table>\n</body></html>");
+
       
    }
    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
